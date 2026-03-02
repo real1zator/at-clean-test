@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>АТ-Транс — Грузоперевозки по России</title>
+<title>Грузоперевозки Калининград — переезды, газель, грузчики</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ── RESET & BASE ─────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Inter',sans-serif;color:#e2e8f0;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -17,43 +16,20 @@ a{color:inherit;text-decoration:none}
 ul{list-style:none}
 button{cursor:pointer;font-family:inherit;border:none;background:none}
 
-/* ── SECTION COLORS ──────────────────────────────────────────────────
-   Каждая секция — свой едва различимый оттенок тёмного фона.
-   Акцент: #e8072a (красный AT-Транс).
-   Текст белый/светло-серый — контраст ≥ 7:1 на всех фонах.
-──────────────────────────────────────────────────────────────────── */
 :root{
-  --red:        #e8072a;
-  --red-dim:    rgba(232,7,42,.12);
-  --red-border: rgba(232,7,42,.3);
-  --white:      #ffffff;
-  --text:       #e2e8f0;
-  --muted:      #94a3b8;
-  --card-border:rgba(255,255,255,.07);
-
-  /* Section backgrounds */
-  --bg-header:  #12141a;
-  --bg-hero:    #0e1016;        /* cold dark navy */
-  --bg-stats:   #0b0e15;        /* deeper navy */
-  --bg-about:   #0e1412;        /* dark teal tint */
-  --bg-services:#13100e;        /* dark warm/brown tint */
-  --bg-cta:     #e8072a;        /* FULL RED — accent break */
-  --bg-fleet:   #0b100e;        /* dark forest tint */
-  --bg-benefits:#100d16;        /* dark purple tint */
-  --bg-footer:  #080a0d;        /* near black */
+  --red:#e8072a;--red-dim:rgba(232,7,42,.12);--red-border:rgba(232,7,42,.3);
+  --white:#ffffff;--text:#e2e8f0;--muted:#94a3b8;--card-border:rgba(255,255,255,.07);
+  --bg-header:#12141a;--bg-hero:#0e1016;--bg-stats:#0b0e15;--bg-about:#0e1412;
+  --bg-services:#13100e;--bg-cta:#e8072a;--bg-fleet:#0b100e;--bg-benefits:#100d16;
+  --bg-footer:#080a0d;
 }
 
-/* ── TYPOGRAPHY ──────────────────────────────────────────────────── */
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.15;color:#fff}
 .h-sub{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-family:'Montserrat',sans-serif;margin-bottom:.75rem;display:block}
 .lead{font-size:1.0625rem;color:var(--muted);line-height:1.75}
-
-/* ── LAYOUT ─────────────────────────────────────────────────────── */
 .container{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
 section{padding:5rem 0}
-.section-head{margin-bottom:3rem}
 
-/* ── BUTTONS ────────────────────────────────────────────────────── */
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:.9375rem;font-weight:700;letter-spacing:.02em;transition:all .2s}
 .btn-red{background:var(--red);color:#fff}
 .btn-red:hover{background:#c50523;box-shadow:0 6px 24px rgba(232,7,42,.35)}
@@ -61,73 +37,71 @@ section{padding:5rem 0}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.06)}
 .btn-dark{background:#000;color:var(--red);border:2px solid #000}
 .btn-dark:hover{background:#111}
+.btn-avito{background:#00aaff;color:#fff}
+.btn-avito:hover{background:#0090dd;box-shadow:0 6px 24px rgba(0,170,255,.3)}
 
-/* ── DIVIDER STRIPE ─────────────────────────────────────────────── */
 .stripe{height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
 
-/* ════════════════════════════════════════════════════════════════════
-   HEADER
-════════════════════════════════════════════════════════════════════ */
+/* HEADER */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg-header);border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .3s}
 .header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.6)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:72px}
 .logo{display:flex;align-items:center;gap:.75rem}
-.logo-mark{width:40px;height:40px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0}
-.logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;line-height:1.2;color:#fff}
-.logo-text small{display:block;font-size:.65rem;font-weight:500;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+.logo-mark{width:40px;height:40px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:.95rem;font-weight:900;color:#fff;flex-shrink:0}
+.logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.9rem;line-height:1.2;color:#fff}
+.logo-text small{display:block;font-size:.625rem;font-weight:500;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
 nav{display:flex;align-items:center;gap:.25rem}
 nav a{padding:.45rem .85rem;border-radius:3px;font-family:'Montserrat',sans-serif;font-size:.8125rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;transition:color .2s,background .2s}
 nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
-.header-phone{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--red);white-space:nowrap}
+.header-phone{font-family:'Montserrat',sans-serif;font-size:1.05rem;font-weight:800;color:var(--red);white-space:nowrap}
 .header-phone:hover{color:#ff3352}
-.btn-callback{padding:.55rem 1.2rem;font-size:.8125rem}
-@media(max-width:900px){nav,.btn-callback{display:none}.header-phone{font-size:.95rem}}
+.btn-callback{padding:.55rem 1.1rem;font-size:.8125rem}
+@media(max-width:900px){nav,.btn-callback{display:none}.header-phone{font-size:.9rem}}
 
-/* ════════════════════════════════════════════════════════════════════
-   HERO
-════════════════════════════════════════════════════════════════════ */
+/* HERO */
 .hero{background:var(--bg-hero);padding:7rem 0 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
-/* Geometric accent — big C shape */
 .hero-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;height:520px;border-radius:50%;border:80px solid rgba(232,7,42,.08);pointer-events:none}
 .hero-deco2{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,7,42,.15);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.hero h1{font-size:clamp(2.2rem,4.5vw,4rem);margin-bottom:1.5rem;font-weight:900}
+.hero h1{font-size:clamp(2rem,4.2vw,3.6rem);margin-bottom:1.25rem;font-weight:900}
 .hero h1 span{color:var(--red)}
-.hero-list{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.5rem}
-.hero-list li{font-size:1.0625rem;color:var(--muted);display:flex;align-items:center;gap:.65rem}
+.hero-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+.badge{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .85rem;border-radius:20px;font-size:.8125rem;font-weight:600;border:1px solid var(--card-border);color:var(--muted);white-space:nowrap}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+.hero-list{display:flex;flex-direction:column;gap:.55rem;margin-bottom:2.25rem}
+.hero-list li{font-size:1rem;color:var(--muted);display:flex;align-items:center;gap:.65rem}
 .hero-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-img-col{display:flex;justify-content:flex-end;align-items:center;position:relative}
-.hero-truck{width:100%;max-width:560px;object-fit:contain;filter:drop-shadow(0 24px 60px rgba(0,0,0,.7))}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.hero-img-col{display:flex;justify-content:flex-end;align-items:center}
+.hero-truck{width:100%;max-width:540px;filter:drop-shadow(0 24px 60px rgba(0,0,0,.7))}
+.avito-strip{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding:.85rem 1.25rem;border:1px solid rgba(0,170,255,.2);border-radius:6px;background:rgba(0,170,255,.05)}
+.avito-strip svg{flex-shrink:0;opacity:.8}
+.avito-strip span{font-size:.875rem;color:var(--muted)}
+.avito-strip a{color:#00aaff;font-weight:700;font-size:.875rem;white-space:nowrap}
+.avito-strip a:hover{color:#4dc8ff}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-img-col{display:none}.hero{min-height:auto;padding:7.5rem 0 4rem}}
 
-/* ════════════════════════════════════════════════════════════════════
-   STATS
-════════════════════════════════════════════════════════════════════ */
+/* STATS */
 .stats{background:var(--bg-stats);border-top:2px solid var(--red);padding:3.5rem 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .stat-card{text-align:center;padding:1.5rem;border:1px solid var(--card-border);border-radius:6px;background:rgba(255,255,255,.02);transition:border-color .25s}
 .stat-card:hover{border-color:var(--red-border)}
-.stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;color:var(--red);line-height:1;margin-bottom:.4rem}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:900;color:var(--red);line-height:1;margin-bottom:.4rem}
 .stat-label{font-size:.875rem;color:var(--muted);font-weight:500}
 @media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
 
-/* ════════════════════════════════════════════════════════════════════
-   ABOUT
-════════════════════════════════════════════════════════════════════ */
+/* ABOUT */
 .about{background:var(--bg-about)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 .about h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:1.25rem}
-.about-text{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1.5rem}
+.about-text{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1.25rem}
 .about-list{display:flex;flex-direction:column;gap:.85rem}
 .about-item{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.25rem;border:1px solid var(--card-border);border-radius:6px;background:rgba(255,255,255,.02)}
 .about-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:var(--red);line-height:1;flex-shrink:0;min-width:2rem}
 .about-item-text{font-size:.9375rem;color:var(--text);font-weight:500}
 @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
 
-/* ════════════════════════════════════════════════════════════════════
-   SERVICES
-════════════════════════════════════════════════════════════════════ */
+/* SERVICES */
 .services{background:var(--bg-services)}
 .services h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:.5rem}
 .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2.5rem}
@@ -143,38 +117,61 @@ nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
 .spec-key{font-size:.875rem;color:var(--muted)}
 .spec-val{font-size:.875rem;font-weight:600;color:#fff;text-align:right}
 .service-img-wrap{border-radius:8px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--card-border);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
-.service-img-wrap svg{opacity:.18}
 @media(max-width:820px){.tab-panel.active{grid-template-columns:1fr}.service-img-wrap{display:none}}
 
-/* ════════════════════════════════════════════════════════════════════
-   CTA BAND
-════════════════════════════════════════════════════════════════════ */
+/* PRICES */
+.prices{background:var(--bg-about)}
+.prices h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:3rem}
+.price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.price-card{border:1px solid var(--card-border);border-radius:8px;padding:2rem 1.5rem;background:rgba(255,255,255,.02);transition:border-color .25s,transform .25s;text-align:center}
+.price-card.accent{border-color:var(--red-border);background:rgba(232,7,42,.04)}
+.price-card:hover{border-color:var(--red-border);transform:translateY(-3px)}
+.price-name{font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.price-vehicle{font-size:.8125rem;color:var(--muted);margin-bottom:1.25rem}
+.price-amount{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:var(--red);line-height:1;margin-bottom:.35rem}
+.price-unit{font-size:.8125rem;color:var(--muted)}
+.price-features{display:flex;flex-direction:column;gap:.45rem;margin-top:1.25rem;text-align:left}
+.price-features li{font-size:.8125rem;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.price-features li::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0}
+@media(max-width:820px){.price-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.price-grid{grid-template-columns:1fr}}
+
+/* CTA */
 .cta{background:var(--bg-cta);padding:4rem 0}
 .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.cta h2{font-size:clamp(1.4rem,2.5vw,2rem);color:#fff;max-width:600px;font-weight:800}
+.cta h2{font-size:clamp(1.3rem,2.3vw,1.9rem);color:#fff;max-width:560px;font-weight:800}
 .cta-form{display:flex;gap:.75rem;flex-wrap:wrap}
-.cta-form input{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:.75rem 1.25rem;font-size:.9375rem;color:#fff;width:240px;font-family:inherit}
+.cta-form input{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:.75rem 1.25rem;font-size:.9375rem;color:#fff;width:220px;font-family:inherit}
 .cta-form input::placeholder{color:rgba(255,255,255,.55)}
 .cta-form input:focus{outline:none;border-color:#fff}
 
-/* ════════════════════════════════════════════════════════════════════
-   FLEET
-════════════════════════════════════════════════════════════════════ */
+/* FLEET */
 .fleet{background:var(--bg-fleet)}
 .fleet h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:.5rem}
-.fleet-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2.5rem}
 .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .fleet-card{border:1px solid var(--card-border);border-radius:8px;padding:1.5rem;background:rgba(255,255,255,.02);transition:border-color .25s,transform .25s}
 .fleet-card:hover{border-color:var(--red-border);transform:translateY(-3px)}
-.fleet-card h4{font-size:1rem;margin-bottom:.5rem}
+.fleet-icon{font-size:1.6rem;margin-bottom:.85rem}
+.fleet-card h4{font-size:1rem;margin-bottom:.35rem}
 .fleet-card p{font-size:.875rem;color:var(--muted)}
 .fleet-badge{display:inline-block;background:var(--red-dim);border:1px solid var(--red-border);border-radius:3px;padding:.2rem .7rem;font-size:.75rem;font-weight:700;color:var(--red);font-family:'Montserrat',sans-serif;margin-bottom:.75rem}
 @media(max-width:860px){.fleet-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.fleet-grid{grid-template-columns:1fr}}
 
-/* ════════════════════════════════════════════════════════════════════
-   BENEFITS
-════════════════════════════════════════════════════════════════════ */
+/* AVITO */
+.avito-section{background:var(--bg-services);padding:3.5rem 0}
+.avito-card{border:1px solid rgba(0,170,255,.2);border-radius:12px;padding:2.5rem;background:rgba(0,170,255,.04);display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap}
+.avito-logo{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;color:#00aaff;flex-shrink:0}
+.avito-logo span{display:block;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:.1rem}
+.avito-info{flex:1;min-width:280px}
+.avito-info h3{font-size:1.25rem;margin-bottom:.5rem;color:#fff}
+.avito-info p{font-size:.9375rem;color:var(--muted);line-height:1.6;max-width:480px}
+.avito-rating{display:flex;align-items:center;gap:.5rem;margin-top:.75rem}
+.stars{color:#f59e0b;font-size:1rem;letter-spacing:.05em}
+.rating-text{font-size:.875rem;color:var(--muted)}
+.avito-actions{display:flex;flex-direction:column;gap:.75rem;flex-shrink:0}
+
+/* BENEFITS */
 .benefits{background:var(--bg-benefits)}
 .benefits h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:3rem}
 .benefits-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}
@@ -187,161 +184,137 @@ nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
 @media(max-width:900px){.benefits-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.benefits-grid{grid-template-columns:1fr 1fr}}
 
-/* ════════════════════════════════════════════════════════════════════
-   FOOTER
-════════════════════════════════════════════════════════════════════ */
+/* FOOTER */
 footer{background:var(--bg-footer);padding:4rem 0 2rem;border-top:2px solid rgba(232,7,42,.25)}
 .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.5fr;gap:2.5rem;margin-bottom:3rem}
-.footer-brand{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.5rem}
+.footer-brand{font-family:'Montserrat',sans-serif;font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:.4rem}
 .footer-tagline{font-size:.875rem;color:var(--muted);margin-bottom:1.5rem}
-.footer-phone{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:var(--red);margin-bottom:.35rem;display:block}
+.footer-phone{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:var(--red);margin-bottom:.35rem;display:block}
 .footer-phone:hover{color:#ff3352}
-.footer-email{font-size:.9375rem;color:var(--muted);display:block}
-.footer-email:hover{color:#fff}
 .footer-col h5{font-family:'Montserrat',sans-serif;font-size:.8125rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:1rem}
 .footer-col ul li{margin-bottom:.5rem}
 .footer-col ul a{font-size:.875rem;color:var(--muted);transition:color .2s}
 .footer-col ul a:hover{color:#fff}
 .footer-address{font-size:.875rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem}
+.footer-avito{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border:1px solid rgba(0,170,255,.25);border-radius:4px;background:rgba(0,170,255,.06);color:#00aaff;font-size:.875rem;font-weight:700;margin-top:.75rem;transition:all .2s}
+.footer-avito:hover{background:rgba(0,170,255,.12);border-color:rgba(0,170,255,.5)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .footer-bottom p{font-size:.8125rem;color:#4a5568}
 @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
 
-/* ── REVEAL ANIMATION ───────────────────────────────────────────── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:none}
-.delay-1{transition-delay:.1s}
-.delay-2{transition-delay:.2s}
-.delay-3{transition-delay:.3s}
-.delay-4{transition-delay:.45s}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.45s}
 </style>
 </head>
 <body>
 
-<!-- ════ HEADER ═════════════════════════════════════════════════════ -->
 <header class="header" id="top">
   <div class="container">
     <div class="header-inner">
       <a href="#top" class="logo">
-        <div class="logo-mark">АТ</div>
-        <div class="logo-text">АТ-ТРАНС<small>Грузоперевозки по России</small></div>
+        <div class="logo-mark">39</div>
+        <div class="logo-text">КалинГруз<small>Грузоперевозки · Калининград</small></div>
       </a>
       <nav>
-        <a href="#about">О компании</a>
+        <a href="#about">О нас</a>
         <a href="#services">Услуги</a>
-        <a href="#fleet">Автопарк</a>
-        <a href="#benefits">Почему мы</a>
+        <a href="#prices">Цены</a>
+        <a href="#fleet">Транспорт</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div style="display:flex;align-items:center;gap:1rem">
-        <a href="tel:88007076157" class="header-phone">8 800 707 61 57</a>
-        <a href="#contacts" class="btn btn-red btn-callback">Обратный звонок</a>
+        <a href="tel:+79XXXXXXXXX" class="header-phone">+7 (9__) ___-__-__</a>
+        <a href="#contacts" class="btn btn-red btn-callback">Заказать</a>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ════ HERO ════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-deco"></div>
   <div class="hero-deco2"></div>
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="h-sub reveal">Надёжные грузоперевозки</span>
-        <h1 class="reveal delay-1">Грузоперевозки<br>по&nbsp;всей <span>России</span><br>от&nbsp;1&nbsp;тонны</h1>
+        <span class="h-sub reveal">Калининград и область</span>
+        <h1 class="reveal delay-1">Грузоперевозки<br>в <span>Калининграде</span><br>быстро и надёжно</h1>
+        <div class="hero-badges reveal delay-2">
+          <span class="badge">Газель до 1.5 т</span>
+          <span class="badge">Грузовик до 5 т</span>
+          <span class="badge">Фура до 20 т</span>
+          <span class="badge">Грузчики</span>
+        </div>
         <ul class="hero-list reveal delay-2">
-          <li>Тентовые перевозки</li>
-          <li>Рефрижераторные перевозки</li>
-          <li>Перевозка с кониками</li>
+          <li>Квартирные и офисные переезды</li>
+          <li>Доставка стройматериалов и мебели</li>
+          <li>Вывоз строительного мусора</li>
+          <li>Переезды из Калининграда в Россию</li>
         </ul>
         <div class="hero-btns reveal delay-3">
-          <a href="tel:88007076157" class="btn btn-red">
+          <a href="tel:+79XXXXXXXXX" class="btn btn-red">
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6z"/></svg>
             Позвонить
           </a>
-          <a href="#contacts" class="btn btn-outline">Оставить заявку</a>
+          <a href="https://www.avito.ru/kaliningrad/predlozheniya_uslug/pereezdy_gruzoperevozki_dostavki_do_3_tonn_7275388730" target="_blank" rel="noopener" class="btn btn-avito">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Объявление на Авито
+          </a>
+        </div>
+        <div class="avito-strip reveal delay-4">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#00aaff" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Отвечаем быстро · </span>
+          <a href="https://www.avito.ru/kaliningrad/predlozheniya_uslug/pereezdy_gruzoperevozki_dostavki_do_3_tonn_7275388730" target="_blank" rel="noopener">Авито — Переезды и грузоперевозки до 3 т</a>
         </div>
       </div>
       <div class="hero-img-col reveal delay-2">
-        <!-- Truck SVG illustration -->
-        <svg class="hero-truck" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="hero-truck" viewBox="0 0 480 200" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="truckBody" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2a2d36"/><stop offset="100%" stop-color="#1a1d24"/>
-            </linearGradient>
-            <linearGradient id="cabin" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2e3240"/><stop offset="100%" stop-color="#1c2030"/>
-            </linearGradient>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2a2d36"/><stop offset="100%" stop-color="#1a1d24"/></linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2e3240"/><stop offset="100%" stop-color="#1c2030"/></linearGradient>
           </defs>
-          <ellipse cx="260" cy="200" rx="220" ry="12" fill="rgba(0,0,0,.5)"/>
-          <!-- Trailer -->
-          <rect x="108" y="48" width="370" height="138" rx="4" fill="url(#truckBody)" stroke="#353840" stroke-width="1.5"/>
-          <rect x="110" y="50" width="366" height="6" rx="2" fill="rgba(255,255,255,.04)"/>
-          <!-- Red stripe -->
-          <rect x="108" y="78" width="370" height="8" fill="rgba(232,7,42,.4)"/>
-          <!-- Door lines -->
-          <line x1="300" y1="50" x2="300" y2="185" stroke="#353840" stroke-width="1.5"/>
-          <line x1="420" y1="50" x2="420" y2="185" stroke="#353840" stroke-width="1.5"/>
-          <line x1="474" y1="50" x2="474" y2="185" stroke="#353840" stroke-width="2"/>
-          <!-- Handles -->
-          <rect x="285" y="118" width="12" height="4" rx="2" fill="#444"/>
-          <rect x="405" y="118" width="12" height="4" rx="2" fill="#444"/>
-          <!-- Tail light -->
-          <rect x="476" y="98" width="12" height="36" rx="2" fill="rgba(220,40,40,.15)" stroke="rgba(220,60,60,.4)" stroke-width="1"/>
-          <rect x="478" y="100" width="8" height="14" rx="1" fill="rgba(220,40,40,.3)"/>
-          <!-- Rear bumper -->
-          <rect x="476" y="174" width="32" height="12" rx="2" fill="#1e2028" stroke="#353840"/>
-
-          <!-- Cab -->
-          <path d="M38 183 L38 115 L44 104 L66 68 L108 50 L108 183 Z" fill="url(#cabin)" stroke="#353840" stroke-width="1.5"/>
-          <!-- Cab front -->
-          <path d="M18 183 L18 148 L38 115 L38 183 Z" fill="#181b25" stroke="#353840" stroke-width="1.5"/>
-          <!-- Windshield -->
-          <path d="M44 112 L66 72 L106 54 L106 112 Z" fill="rgba(100,160,240,.07)" stroke="rgba(200,220,255,.2)" stroke-width="1"/>
-          <path d="M50 108 L68 78 L88 68 L88 74 L70 84 L56 110 Z" fill="rgba(255,255,255,.03)"/>
-          <!-- Side window -->
-          <rect x="112" y="58" width="42" height="34" rx="2" fill="rgba(100,160,240,.06)" stroke="rgba(200,220,255,.12)" stroke-width="1"/>
-          <!-- Waist line -->
-          <line x1="38" y1="128" x2="478" y2="128" stroke="rgba(232,7,42,.22)" stroke-width="1"/>
-          <!-- Mirror -->
-          <path d="M42 96 L54 93 L54 104 L42 107 Z" fill="#1e2028" stroke="#353840"/>
-          <!-- Headlight -->
-          <rect x="18" y="138" width="22" height="16" rx="3" fill="rgba(255,245,150,.07)" stroke="rgba(232,7,42,.5)" stroke-width="1.2"/>
-          <rect x="21" y="141" width="10" height="8" rx="1.5" fill="rgba(255,245,150,.22)"/>
-          <rect x="18" y="133" width="22" height="5" rx="2" fill="rgba(255,245,150,.14)" stroke="rgba(232,7,42,.35)" stroke-width="1"/>
-          <!-- DRL glow -->
-          <ellipse cx="10" cy="146" rx="22" ry="10" fill="rgba(255,240,100,.06)"/>
-          <!-- Grille -->
-          <rect x="18" y="156" width="22" height="22" rx="2" fill="#141720" stroke="#353840"/>
-          <line x1="21" y1="161" x2="38" y2="161" stroke="#353840" stroke-dasharray="3 3"/>
-          <line x1="21" y1="166" x2="38" y2="166" stroke="#353840" stroke-dasharray="3 3"/>
-          <line x1="21" y1="171" x2="38" y2="171" stroke="#353840" stroke-dasharray="3 3"/>
-          <!-- Bumper -->
-          <rect x="14" y="177" width="30" height="8" rx="2" fill="#181b25" stroke="#353840"/>
-          <!-- Front arch -->
-          <path d="M26 183 Q26 160 56 160 Q86 160 86 183" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
-          <!-- Rear arch -->
-          <path d="M346 183 Q346 158 378 158 Q410 158 410 183" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
-          <!-- Front wheel -->
-          <circle cx="56" cy="188" r="28" fill="#10121a" stroke="#353840" stroke-width="2"/>
-          <circle cx="56" cy="188" r="20" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
-          <circle cx="56" cy="188" r="7" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
-          <line x1="56" y1="168" x2="56" y2="178" stroke="#353840" stroke-width="1.5"/>
-          <line x1="56" y1="198" x2="56" y2="208" stroke="#353840" stroke-width="1.5"/>
-          <line x1="36" y1="188" x2="46" y2="188" stroke="#353840" stroke-width="1.5"/>
-          <line x1="66" y1="188" x2="76" y2="188" stroke="#353840" stroke-width="1.5"/>
-          <circle cx="56" cy="188" r="2.5" fill="rgba(232,7,42,.7)"/>
-          <!-- Rear wheel -->
-          <circle cx="378" cy="188" r="28" fill="#10121a" stroke="#353840" stroke-width="2"/>
-          <circle cx="378" cy="188" r="20" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
-          <circle cx="378" cy="188" r="7" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
-          <line x1="378" y1="168" x2="378" y2="178" stroke="#353840" stroke-width="1.5"/>
-          <line x1="378" y1="198" x2="378" y2="208" stroke="#353840" stroke-width="1.5"/>
-          <line x1="358" y1="188" x2="368" y2="188" stroke="#353840" stroke-width="1.5"/>
-          <line x1="388" y1="188" x2="398" y2="188" stroke="#353840" stroke-width="1.5"/>
-          <circle cx="378" cy="188" r="2.5" fill="rgba(232,7,42,.7)"/>
+          <ellipse cx="240" cy="188" rx="200" ry="10" fill="rgba(0,0,0,.45)"/>
+          <rect x="130" y="44" width="290" height="128" rx="4" fill="url(#g1)" stroke="#353840" stroke-width="1.5"/>
+          <rect x="132" y="46" width="286" height="5" rx="2" fill="rgba(255,255,255,.04)"/>
+          <rect x="130" y="70" width="290" height="7" fill="rgba(232,7,42,.38)"/>
+          <text x="270" y="118" text-anchor="middle" font-family="Montserrat" font-size="14" font-weight="700" fill="rgba(232,7,42,.6)" letter-spacing="2">КалинГруз</text>
+          <text x="270" y="135" text-anchor="middle" font-family="Montserrat" font-size="10" font-weight="400" fill="rgba(148,163,184,.4)" letter-spacing="1">КАЛИНИНГРАД</text>
+          <path d="M34 172 L34 108 L44 96 L62 62 L130 46 L130 172 Z" fill="url(#g2)" stroke="#353840" stroke-width="1.5"/>
+          <path d="M14 172 L14 140 L34 108 L34 172 Z" fill="#181b25" stroke="#353840" stroke-width="1.5"/>
+          <path d="M46 104 L64 66 L128 50 L128 104 Z" fill="rgba(100,160,240,.07)" stroke="rgba(200,220,255,.18)" stroke-width="1"/>
+          <rect x="134" y="52" width="38" height="30" rx="2" fill="rgba(100,160,240,.06)" stroke="rgba(200,220,255,.1)" stroke-width="1"/>
+          <line x1="34" y1="122" x2="418" y2="122" stroke="rgba(232,7,42,.2)" stroke-width="1"/>
+          <path d="M38 92 L50 89 L50 100 L38 103 Z" fill="#1e2028" stroke="#353840"/>
+          <rect x="14" y="130" width="22" height="14" rx="2.5" fill="rgba(255,245,150,.07)" stroke="rgba(232,7,42,.45)" stroke-width="1.2"/>
+          <rect x="17" y="133" width="9" height="7" rx="1.5" fill="rgba(255,245,150,.22)"/>
+          <rect x="14" y="126" width="22" height="5" rx="2" fill="rgba(255,245,150,.12)" stroke="rgba(232,7,42,.3)" stroke-width="1"/>
+          <line x1="384" y1="46" x2="384" y2="172" stroke="#353840" stroke-width="1.5"/>
+          <rect x="416" y="88" width="10" height="30" rx="2" fill="rgba(220,40,40,.12)" stroke="rgba(220,60,60,.35)" stroke-width="1"/>
+          <rect x="10" y="168" width="28" height="6" rx="2" fill="#181b25" stroke="#353840"/>
+          <rect x="416" y="168" width="28" height="6" rx="2" fill="#181b25" stroke="#353840"/>
+          <rect x="14" y="147" width="22" height="18" rx="2" fill="#141720" stroke="#353840"/>
+          <line x1="17" y1="152" x2="34" y2="152" stroke="#353840" stroke-dasharray="3 3"/>
+          <line x1="17" y1="157" x2="34" y2="157" stroke="#353840" stroke-dasharray="3 3"/>
+          <line x1="17" y1="162" x2="34" y2="162" stroke="#353840" stroke-dasharray="3 3"/>
+          <path d="M24 172 Q24 150 52 150 Q80 150 80 172" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
+          <path d="M342 172 Q342 150 370 150 Q398 150 398 172" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
+          <circle cx="52" cy="178" r="24" fill="#10121a" stroke="#353840" stroke-width="2"/>
+          <circle cx="52" cy="178" r="17" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
+          <circle cx="52" cy="178" r="6" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
+          <line x1="52" y1="161" x2="52" y2="169" stroke="#353840" stroke-width="1.5"/>
+          <line x1="52" y1="187" x2="52" y2="195" stroke="#353840" stroke-width="1.5"/>
+          <line x1="35" y1="178" x2="43" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <line x1="61" y1="178" x2="69" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <circle cx="52" cy="178" r="2" fill="rgba(232,7,42,.7)"/>
+          <circle cx="370" cy="178" r="24" fill="#10121a" stroke="#353840" stroke-width="2"/>
+          <circle cx="370" cy="178" r="17" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
+          <circle cx="370" cy="178" r="6" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
+          <line x1="370" y1="161" x2="370" y2="169" stroke="#353840" stroke-width="1.5"/>
+          <line x1="370" y1="187" x2="370" y2="195" stroke="#353840" stroke-width="1.5"/>
+          <line x1="353" y1="178" x2="361" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <line x1="379" y1="178" x2="387" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <circle cx="370" cy="178" r="2" fill="rgba(232,7,42,.7)"/>
         </svg>
       </div>
     </div>
@@ -350,72 +323,39 @@ footer{background:var(--bg-footer);padding:4rem 0 2rem;border-top:2px solid rgba
 
 <div class="stripe"></div>
 
-<!-- ════ STATS ════════════════════════════════════════════════════════ -->
 <section class="stats" id="stats">
   <div class="container">
     <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="stat-num">10+</div>
-        <div class="stat-label">лет на рынке грузоперевозок</div>
-      </div>
-      <div class="stat-card reveal delay-1">
-        <div class="stat-num">3 000</div>
-        <div class="stat-label">довольных клиентов</div>
-      </div>
-      <div class="stat-card reveal delay-2">
-        <div class="stat-num">100+</div>
-        <div class="stat-label">единиц техники в автопарке</div>
-      </div>
-      <div class="stat-card reveal delay-3">
-        <div class="stat-num">24/7</div>
-        <div class="stat-label">поддержка на протяжении рейса</div>
-      </div>
+      <div class="stat-card reveal"><div class="stat-num">5+</div><div class="stat-label">лет работаем в Калининграде</div></div>
+      <div class="stat-card reveal delay-1"><div class="stat-num">1 500+</div><div class="stat-label">выполненных переездов</div></div>
+      <div class="stat-card reveal delay-2"><div class="stat-num">3</div><div class="stat-label">единицы техники в парке</div></div>
+      <div class="stat-card reveal delay-3"><div class="stat-num">24/7</div><div class="stat-label">принимаем заявки</div></div>
     </div>
   </div>
 </section>
 
-<!-- ════ ABOUT ════════════════════════════════════════════════════════ -->
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
       <div>
-        <span class="h-sub reveal">О компании</span>
-        <h2 class="reveal delay-1">Транспортная компания<br><span style="color:var(--red)">АТ-Транс</span></h2>
-        <p class="about-text reveal delay-2">
-          Транспортная Компания «АТ-Транс» уже десять лет занимается быстрыми и надежными
-          перевозками по всей России, в том числе в отдалённые населённые пункты. Нашими
-          клиентами стали тысячи людей и организаций, доверивших нам свои грузы.
-        </p>
-        <p class="about-text reveal delay-2">
-          Мы специализируемся на перевозках грузов от 1 тонны, обеспечивая полную
-          сохранность и своевременную доставку в любую точку страны.
-        </p>
-        <a href="tel:88007076157" class="btn btn-red reveal delay-3" style="margin-top:.5rem">
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6z"/></svg>
-          8 800 707 61 57
-        </a>
+        <span class="h-sub reveal">О нас</span>
+        <h2 class="reveal delay-1">Грузоперевозки<br><span style="color:var(--red)">по Калининграду</span><br>и области</h2>
+        <p class="about-text reveal delay-2">Работаем в Калининграде и Калининградской области. Выполняем квартирные и офисные переезды, доставку строительных материалов и мебели, вывоз мусора. Бережно относимся к каждому грузу.</p>
+        <p class="about-text reveal delay-2">Собственный транспорт — Газель, Газон Next и еврофура. Грузчики в штате. Берёмся за нестандартные задачи: пианино, сейфы, крупногабарит.</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap" class="reveal delay-3">
+          <a href="tel:+79XXXXXXXXX" class="btn btn-red">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6z"/></svg>
+            Позвонить сейчас
+          </a>
+          <a href="https://www.avito.ru/kaliningrad/predlozheniya_uslug/pereezdy_gruzoperevozki_dostavki_do_3_tonn_7275388730" target="_blank" rel="noopener" class="btn btn-outline">Открыть на Авито</a>
+        </div>
       </div>
       <div class="about-list reveal delay-2">
-        <div class="about-item">
-          <span class="about-num">01</span>
-          <span class="about-item-text">Собственный автопарк: более 100 единиц техники различных классов</span>
-        </div>
-        <div class="about-item">
-          <span class="about-num">02</span>
-          <span class="about-item-text">Страхование грузов на всей протяжённости маршрута</span>
-        </div>
-        <div class="about-item">
-          <span class="about-num">03</span>
-          <span class="about-item-text">GPS-мониторинг автомобилей в реальном времени</span>
-        </div>
-        <div class="about-item">
-          <span class="about-num">04</span>
-          <span class="about-item-text">Опытные водители с медицинскими справками и допуском к работе</span>
-        </div>
-        <div class="about-item">
-          <span class="about-num">05</span>
-          <span class="about-item-text">Выполнение рейсов в выходные и праздничные дни</span>
-        </div>
+        <div class="about-item"><span class="about-num">01</span><span class="about-item-text">Газель Next — до 1.5 тонны, кузов 4 м, идеально для квартирных переездов</span></div>
+        <div class="about-item"><span class="about-num">02</span><span class="about-item-text">Газон Next — до 5 тонн, кузов 6 м, для стройматериалов и крупных грузов</span></div>
+        <div class="about-item"><span class="about-num">03</span><span class="about-item-text">Еврофура — до 20 тонн, 13.6 м, для переездов из Калининграда в Россию</span></div>
+        <div class="about-item"><span class="about-num">04</span><span class="about-item-text">Грузчики в бригаде — разборка/сборка мебели, упаковка, подъём на этаж</span></div>
+        <div class="about-item"><span class="about-num">05</span><span class="about-item-text">Работаем по договору, выдаём документы юридическим лицам</span></div>
       </div>
     </div>
   </div>
@@ -423,150 +363,189 @@ footer{background:var(--bg-footer);padding:4rem 0 2rem;border-top:2px solid rgba
 
 <div class="stripe"></div>
 
-<!-- ════ SERVICES ════════════════════════════════════════════════════ -->
 <section class="services" id="services">
   <div class="container">
-    <span class="h-sub reveal">Наши услуги</span>
-    <h2 class="reveal delay-1">Осуществляем<br>грузоперевозки</h2>
+    <span class="h-sub reveal">Что возим</span>
+    <h2 class="reveal delay-1">Наши услуги</h2>
     <div class="tabs">
-      <button class="tab active" onclick="showTab('tent')">Тентовые перевозки</button>
-      <button class="tab" onclick="showTab('refr')">Рефрижераторные</button>
-      <button class="tab" onclick="showTab('konik')">С кониками</button>
+      <button class="tab active" onclick="showTab('pereezd')">Переезды</button>
+      <button class="tab" onclick="showTab('delivery')">Доставка грузов</button>
+      <button class="tab" onclick="showTab('musor')">Вывоз мусора</button>
     </div>
-    <!-- Tent -->
-    <div class="tab-panel active" id="tab-tent">
+    <div class="tab-panel active" id="tab-pereezd">
       <div>
-        <p class="service-desc">
-          Тентовый полуприцеп — универсальное решение для перевозки большинства видов грузов.
-          Тент надёжно защищает содержимое от осадков и ветра. Боковая загрузка через штору
-          позволяет быстро выполнять погрузку-разгрузку.
-        </p>
+        <p class="service-desc">Квартирный и офисный переезд под ключ — от звонка до расстановки мебели на новом месте. Упакуем, погрузим, перевезём и занесём. Бережно с хрупким. Разбираем и собираем мебель.</p>
         <div class="service-specs">
-          <div class="spec-title">Основные характеристики</div>
-          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 22 т</span></div>
-          <div class="spec-row"><span class="spec-key">Длина кузова</span><span class="spec-val">13,6 м</span></div>
-          <div class="spec-row"><span class="spec-key">Объём кузова</span><span class="spec-val">86 м³</span></div>
-          <div class="spec-row"><span class="spec-key">Высота погрузки</span><span class="spec-val">2,7 м</span></div>
-          <div class="spec-row"><span class="spec-key">Ширина кузова</span><span class="spec-val">2,45 м</span></div>
+          <div class="spec-title">Стоимость переезда</div>
+          <div class="spec-row"><span class="spec-key">Газель (1–2 комнаты)</span><span class="spec-val">от 2 500 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Газон (3–4 комнаты)</span><span class="spec-val">от 4 000 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Грузчики (1 чел/час)</span><span class="spec-val">от 500 ₽/ч</span></div>
+          <div class="spec-row"><span class="spec-key">Разборка/сборка мебели</span><span class="spec-val">договорная</span></div>
+          <div class="spec-row"><span class="spec-key">Пианино, сейфы</span><span class="spec-val">договорная</span></div>
         </div>
       </div>
       <div class="service-img-wrap">
-        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
-          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="28" font-weight="800" fill="rgba(232,7,42,.5)">ТЕНТ</text>
+        <svg viewBox="0 0 400 220" width="340" fill="none">
+          <rect x="60" y="50" width="280" height="120" rx="6" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.02)"/>
+          <rect x="80" y="70" width="60" height="80" rx="3" stroke="#555" fill="rgba(232,7,42,.07)"/>
+          <rect x="160" y="85" width="50" height="65" rx="3" stroke="#555" fill="rgba(232,7,42,.07)"/>
+          <rect x="225" y="90" width="80" height="60" rx="3" stroke="#555" fill="rgba(232,7,42,.07)"/>
+          <text x="200" y="196" text-anchor="middle" font-family="Montserrat" font-size="11" fill="rgba(148,163,184,.4)" letter-spacing="2">ПЕРЕЕЗД</text>
         </svg>
       </div>
     </div>
-    <!-- Refr -->
-    <div class="tab-panel" id="tab-refr">
+    <div class="tab-panel" id="tab-delivery">
       <div>
-        <p class="service-desc">
-          Рефрижераторные перевозки — для грузов, требующих поддержания температурного
-          режима. Холодильные установки поддерживают температуру от −20 до +12°C на
-          протяжении всего рейса. Идеально для продуктов питания и фармацевтики.
-        </p>
+        <p class="service-desc">Доставка любых грузов по Калининграду, области и в Россию. Строительные материалы (кирпич, блоки, доски), мебель из магазинов, оборудование, промышленные товары. Подача от 1 часа.</p>
         <div class="service-specs">
-          <div class="spec-title">Основные характеристики</div>
-          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 20 т</span></div>
-          <div class="spec-row"><span class="spec-key">Длина кузова</span><span class="spec-val">13,4 м</span></div>
-          <div class="spec-row"><span class="spec-key">Температурный режим</span><span class="spec-val">−20°C … +12°C</span></div>
-          <div class="spec-row"><span class="spec-key">Объём кузова</span><span class="spec-val">82 м³</span></div>
+          <div class="spec-title">Тарифы на доставку</div>
+          <div class="spec-row"><span class="spec-key">Газель по городу</span><span class="spec-val">от 800 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Газон по городу</span><span class="spec-val">от 1 500 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Межгород (область)</span><span class="spec-val">от 15 ₽/км</span></div>
+          <div class="spec-row"><span class="spec-key">В Россию (от Калининграда)</span><span class="spec-val">договорная</span></div>
         </div>
       </div>
       <div class="service-img-wrap">
-        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
-          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="22" font-weight="800" fill="rgba(232,7,42,.5)">РЕФРИЖ.</text>
+        <svg viewBox="0 0 400 220" width="340" fill="none">
+          <path d="M60 150 L200 70 L340 150" stroke="#444" stroke-width="2" fill="none"/>
+          <rect x="160" y="80" width="80" height="50" rx="3" stroke="#555" fill="rgba(232,7,42,.07)"/>
+          <text x="200" y="196" text-anchor="middle" font-family="Montserrat" font-size="11" fill="rgba(148,163,184,.4)" letter-spacing="2">ДОСТАВКА</text>
         </svg>
       </div>
     </div>
-    <!-- Konik -->
-    <div class="tab-panel" id="tab-konik">
+    <div class="tab-panel" id="tab-musor">
       <div>
-        <p class="service-desc">
-          Перевозка с кониками — самый надёжный способ доставки больших и длинномерных
-          грузов: металлопрокат, трубы, пиломатериалы, негабаритные конструкции.
-          Коники обеспечивают надёжную фиксацию и безопасную транспортировку.
-        </p>
+        <p class="service-desc">Вывоз строительного мусора, старой мебели, бытовой техники. После ремонта или расхламления. Загрузим сами или только вывезем. Работаем с частными лицами и строительными бригадами.</p>
         <div class="service-specs">
-          <div class="spec-title">Основные характеристики</div>
-          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 22 т</span></div>
-          <div class="spec-row"><span class="spec-key">Длина груза</span><span class="spec-val">до 13,6 м</span></div>
-          <div class="spec-row"><span class="spec-key">Тип груза</span><span class="spec-val">длинномерный</span></div>
+          <div class="spec-title">Стоимость вывоза</div>
+          <div class="spec-row"><span class="spec-key">Газель (до 1.5 т)</span><span class="spec-val">от 2 000 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Газон (до 5 т)</span><span class="spec-val">от 3 500 ₽</span></div>
+          <div class="spec-row"><span class="spec-key">Погрузка грузчиками</span><span class="spec-val">от 500 ₽/ч</span></div>
         </div>
       </div>
       <div class="service-img-wrap">
-        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
-          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="24" font-weight="800" fill="rgba(232,7,42,.5)">КОНИКИ</text>
+        <svg viewBox="0 0 400 220" width="340" fill="none">
+          <path d="M100 160 L140 80 L260 80 L300 160 Z" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.02)"/>
+          <text x="200" y="196" text-anchor="middle" font-family="Montserrat" font-size="11" fill="rgba(148,163,184,.4)" letter-spacing="2">ВЫВОЗ МУСОРА</text>
         </svg>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ CTA ══════════════════════════════════════════════════════════ -->
+<section class="prices" id="prices">
+  <div class="container">
+    <span class="h-sub reveal">Прозрачные тарифы</span>
+    <h2 class="reveal delay-1">Цены на перевозку</h2>
+    <div class="price-grid">
+      <div class="price-card reveal">
+        <div class="price-name">Газель</div>
+        <div class="price-vehicle">Газель Next · до 1.5 т · кузов 4 м</div>
+        <div class="price-amount">от 800 ₽</div>
+        <div class="price-unit">подача по городу</div>
+        <ul class="price-features">
+          <li>Грузоподъёмность до 1 500 кг</li>
+          <li>Кузов 4 × 2 × 1.8 м</li>
+          <li>Подача от 30 минут</li>
+          <li>Идеально для 1–2 комнат</li>
+        </ul>
+      </div>
+      <div class="price-card accent reveal delay-1">
+        <div class="price-name">Газон</div>
+        <div class="price-vehicle">Газон Next · до 5 т · кузов 6 м</div>
+        <div class="price-amount">от 1 500 ₽</div>
+        <div class="price-unit">подача по городу</div>
+        <ul class="price-features">
+          <li>Грузоподъёмность до 5 000 кг</li>
+          <li>Кузов 6 × 2.4 × 2.2 м</li>
+          <li>Для переезда 3–4 комнаты</li>
+          <li>Стройматериалы и мебель</li>
+        </ul>
+      </div>
+      <div class="price-card reveal delay-2">
+        <div class="price-name">Еврофура</div>
+        <div class="price-vehicle">Тентованный п/п · до 20 т · 13.6 м</div>
+        <div class="price-amount">договорная</div>
+        <div class="price-unit">в Россию / по области</div>
+        <ul class="price-features">
+          <li>Грузоподъёмность до 20 т</li>
+          <li>Объём кузова 82–86 м³</li>
+          <li>Переезды из Калининграда</li>
+          <li>Межгород по РФ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="container">
     <div class="cta-inner">
-      <h2>У вас есть нестандартная задача<br>или уточняющие вопросы?</h2>
+      <h2>Нужна машина сегодня?<br>Звоните — подадим в течение часа!</h2>
       <div class="cta-form">
-        <input type="text" placeholder="Имя или название компании">
         <input type="tel" placeholder="Ваш телефон">
-        <button class="btn btn-dark">Отправить</button>
+        <button class="btn btn-dark">Перезвоним</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ FLEET ════════════════════════════════════════════════════════ -->
 <section class="fleet" id="fleet">
   <div class="container">
     <span class="h-sub reveal">Наш транспорт</span>
-    <h2 class="reveal delay-1">Автопарк</h2>
-    <p class="lead reveal delay-2" style="max-width:580px;margin-bottom:0">
-      Собственный парк из более чем 100 единиц техники. Регулярное техническое
-      обслуживание и контроль технического состояния каждого автомобиля.
-    </p>
-    <div class="fleet-tabs" style="margin-top:2rem">
-      <button class="tab active" onclick="showFleet('full')">Тентовые полуприцепы</button>
-      <button class="tab" onclick="showFleet('refr')">Рефрижераторы</button>
-      <button class="tab" onclick="showFleet('konik')">С кониками</button>
+    <h2 class="reveal delay-1">Парк техники</h2>
+    <p class="lead reveal delay-2" style="max-width:560px;margin-bottom:0">Собственные автомобили — без посредников. Регулярное ТО, чистый кузов, верёвки и крепёжные ремни в комплекте.</p>
+    <div class="tabs" style="margin-top:1.75rem;margin-bottom:2.5rem">
+      <button class="tab active" onclick="showFleet('small')">Газель</button>
+      <button class="tab" onclick="showFleet('medium')">Газон</button>
+      <button class="tab" onclick="showFleet('euro')">Еврофура</button>
     </div>
-    <div class="fleet-grid" id="fleet-full">
+    <div class="fleet-grid" id="fleet-small">
       <div class="fleet-card reveal">
-        <div class="fleet-badge">22 тонны</div>
-        <h4>Volvo FH / MAN TGX</h4>
-        <p>Тентованный полуприцеп 13,6 м, 86 м³. Боковая загрузка, крепёжные ремни.</p>
+        <div class="fleet-badge">до 1.5 т</div>
+        <div class="fleet-icon">🚐</div>
+        <h4>Газель Next</h4>
+        <p>Цельнометаллический фургон. Кузов 4 × 2 × 1.8 м. Идеально для небольших переездов и доставок по городу.</p>
       </div>
       <div class="fleet-card reveal delay-1">
-        <div class="fleet-badge">20 тонн</div>
-        <h4>Scania R / Mercedes Actros</h4>
-        <p>Тент, удлинённый кузов, пол с ламелями для крепления груза.</p>
+        <div class="fleet-badge">до 1 т</div>
+        <div class="fleet-icon">🚐</div>
+        <h4>Газель бортовая</h4>
+        <p>Бортовой кузов с откидными бортами. Удобно для погрузки строительных материалов, поддонов, длинномеров.</p>
       </div>
       <div class="fleet-card reveal delay-2">
-        <div class="fleet-badge">до 5 тонн</div>
-        <h4>Mercedes Sprinter / Ford Transit</h4>
-        <p>Малотоннажные тентованные фургоны для сборных и малых партий.</p>
+        <div class="fleet-badge">до 2 т</div>
+        <div class="fleet-icon">📦</div>
+        <h4>Газель 6 метров</h4>
+        <p>Удлинённый фургон 6 м, 40 кубов. Для полноценного 1–2-комнатного переезда за один рейс.</p>
       </div>
     </div>
-    <div class="fleet-grid" id="fleet-refr" style="display:none">
+    <div class="fleet-grid" id="fleet-medium" style="display:none">
       <div class="fleet-card">
-        <div class="fleet-badge">−20 … +12°C</div>
-        <h4>Carrier / Thermo King</h4>
-        <p>Рефрижераторные полуприцепы с сертифицированным холодильным оборудованием.</p>
+        <div class="fleet-badge">до 5 т</div>
+        <div class="fleet-icon">🚛</div>
+        <h4>Газон Next тент</h4>
+        <p>Кузов 6 × 2.4 × 2.2 м, тентованный. До 5 тонн. Боковая погрузка. Для 3–4-комнатных переездов.</p>
       </div>
       <div class="fleet-card">
-        <div class="fleet-badge">фармацевтика</div>
-        <h4>ATP-сертификат</h4>
-        <p>Транспорт для перевозки лекарственных средств и биологических грузов.</p>
+        <div class="fleet-badge">до 5 т</div>
+        <div class="fleet-icon">🏗️</div>
+        <h4>Газон бортовой</h4>
+        <p>Бортовая платформа. Для блоков, кирпича, досок, металлоконструкций и поддонов с материалами.</p>
       </div>
     </div>
-    <div class="fleet-grid" id="fleet-konik" style="display:none">
+    <div class="fleet-grid" id="fleet-euro" style="display:none">
       <div class="fleet-card">
-        <div class="fleet-badge">до 13,6 м</div>
-        <h4>Коник / Лесовоз</h4>
-        <p>Специализированная техника для длинномерных грузов: металл, трубы, пиломатериал.</p>
+        <div class="fleet-badge">до 20 т</div>
+        <div class="fleet-icon">🚚</div>
+        <h4>Тентованный полуприцеп</h4>
+        <p>Длина кузова 13.6 м, объём 86 м³. Переезды из Калининграда по всей России. Боковая и задняя загрузка.</p>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-badge">межгород</div>
+        <div class="fleet-icon">🗺️</div>
+        <h4>Сборный груз (попутный)</h4>
+        <p>Отправляем попутным грузом из Калининграда в Москву, СПб и другие города регулярно.</p>
       </div>
     </div>
   </div>
@@ -574,114 +553,119 @@ footer{background:var(--bg-footer);padding:4rem 0 2rem;border-top:2px solid rgba
 
 <div class="stripe"></div>
 
-<!-- ════ BENEFITS ════════════════════════════════════════════════════ -->
-<section class="benefits" id="benefits">
+<section class="avito-section">
   <div class="container">
-    <span class="h-sub reveal">Почему мы</span>
-    <h2 class="reveal delay-1">Наши преимущества</h2>
-    <div class="benefits-grid">
-      <div class="ben-card reveal">
-        <div class="ben-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div class="avito-card reveal">
+      <div class="avito-logo">авито<span>наш профиль</span></div>
+      <div class="avito-info">
+        <h3>Переезды, грузоперевозки, доставки до 3 тонн — Калининград</h3>
+        <p>Листинг на Авито с отзывами и историей. Оформляем сделку прямо в чате или по договору. Подтверждённый исполнитель, быстрые ответы.</p>
+        <div class="avito-rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-text">Отзывы клиентов · Проверенный продавец</span>
         </div>
-        <h4>Надёжность</h4>
-        <p>10 лет на рынке, тысячи успешно выполненных рейсов</p>
       </div>
-      <div class="ben-card reveal delay-1">
-        <div class="ben-icon">
-          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        </div>
-        <h4>Прозрачность</h4>
-        <p>Фиксированные цены, договоры, закрывающие документы</p>
-      </div>
-      <div class="ben-card reveal delay-2">
-        <div class="ben-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h4>Пунктуальность</h4>
-        <p>GPS-контроль и строгое соблюдение сроков доставки</p>
-      </div>
-      <div class="ben-card reveal delay-3">
-        <div class="ben-icon">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h4>Гибкость</h4>
-        <p>Индивидуальный подход к каждому клиенту и нестандартным задачам</p>
-      </div>
-      <div class="ben-card reveal" style="transition-delay:.55s">
-        <div class="ben-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h4>Ответственность</h4>
-        <p>Страхование грузов и полная финансовая ответственность</p>
+      <div class="avito-actions">
+        <a href="https://www.avito.ru/kaliningrad/predlozheniya_uslug/pereezdy_gruzoperevozki_dostavki_do_3_tonn_7275388730" target="_blank" rel="noopener" class="btn btn-avito">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Открыть объявление
+        </a>
+        <a href="tel:+79XXXXXXXXX" class="btn btn-outline" style="text-align:center">Позвонить напрямую</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════ FOOTER ═══════════════════════════════════════════════════════ -->
+<section class="benefits" id="benefits">
+  <div class="container">
+    <span class="h-sub reveal">Почему выбирают нас</span>
+    <h2 class="reveal delay-1">Наши преимущества</h2>
+    <div class="benefits-grid">
+      <div class="ben-card reveal">
+        <div class="ben-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Своя техника</h4>
+        <p>Собственный парк без посредников — цена ниже, контроль качества выше</p>
+      </div>
+      <div class="ben-card reveal delay-1">
+        <div class="ben-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Быстро</h4>
+        <p>Подача по Калининграду от 30 минут, берём срочные заказы</p>
+      </div>
+      <div class="ben-card reveal delay-2">
+        <div class="ben-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h4>Фиксированная цена</h4>
+        <p>Называем стоимость до поездки — никаких сюрпризов после</p>
+      </div>
+      <div class="ben-card reveal delay-3">
+        <div class="ben-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <h4>Опытные грузчики</h4>
+        <p>Профессиональная бригада — разборка, сборка, упаковка хрупкого</p>
+      </div>
+      <div class="ben-card reveal" style="transition-delay:.55s">
+        <div class="ben-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h4>Рейтинг на Авито</h4>
+        <p>Много положительных отзывов на Авито — можно проверить самостоятельно</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="contacts">
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">АТ-ТРАНС</div>
-        <p class="footer-tagline">Грузоперевозки по России от 1 тонны</p>
-        <a href="tel:88007076157" class="footer-phone">8 800 707 61 57</a>
-        <a href="mailto:info@at-trans.ru" class="footer-email">info@at-trans.ru</a>
+        <div class="footer-brand">КалинГруз</div>
+        <p class="footer-tagline">Грузоперевозки и переезды в Калининграде</p>
+        <a href="tel:+79XXXXXXXXX" class="footer-phone">+7 (9__) ___-__-__</a>
+        <span style="display:block;margin-top:.3rem;color:#4a5568;font-size:.875rem">Калининград и область</span>
+        <a href="https://www.avito.ru/kaliningrad/predlozheniya_uslug/pereezdy_gruzoperevozki_dostavki_do_3_tonn_7275388730" target="_blank" rel="noopener" class="footer-avito">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Объявление на Авито
+        </a>
       </div>
       <div class="footer-col">
         <h5>Навигация</h5>
         <ul>
-          <li><a href="#about">О компании</a></li>
+          <li><a href="#about">О нас</a></li>
           <li><a href="#services">Услуги</a></li>
-          <li><a href="#fleet">Автопарк</a></li>
-          <li><a href="#benefits">Почему мы</a></li>
+          <li><a href="#prices">Цены</a></li>
+          <li><a href="#fleet">Транспорт</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Услуги</h5>
         <ul>
-          <li><a href="#services">Тентовые перевозки</a></li>
-          <li><a href="#services">Рефрижераторные</a></li>
-          <li><a href="#services">Перевозки с кониками</a></li>
-          <li><a href="#services">Сборные грузы</a></li>
+          <li><a href="#services">Квартирные переезды</a></li>
+          <li><a href="#services">Офисные переезды</a></li>
+          <li><a href="#services">Доставка грузов</a></li>
+          <li><a href="#services">Вывоз мусора</a></li>
+          <li><a href="#services">Переезды в Россию</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Контакты</h5>
-        <p class="footer-address">г. Москва, Строительный проезд,<br>дом 7А, корпус 11А</p>
-        <p class="footer-address">ООО «АТ-Транс»<br>ИНН: 7733339252</p>
+        <p class="footer-address">г. Калининград<br>и Калининградская область</p>
+        <p class="footer-address">Работаем ежедневно,<br>принимаем заявки 24/7</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 АТ-Транс. Все права защищены.</p>
-      <p style="cursor:pointer;color:#4a5568">Политика конфиденциальности</p>
+      <p>© 2026 КалинГруз — Грузоперевозки Калининград</p>
+      <p style="color:#4a5568;font-size:.8125rem">Калининград и Калининградская область</p>
     </div>
   </div>
 </footer>
 
 <script>
-// ── SCROLL HEADER ────────────────────────────────────────────────────
-window.addEventListener('scroll',()=>{
-  document.getElementById('top').classList.toggle('scrolled',scrollY>60)
-},{ passive:true })
-
-// ── REVEAL ───────────────────────────────────────────────────────────
-const obs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
-},{threshold:.12})
+window.addEventListener('scroll',()=>{document.getElementById('top').classList.toggle('scrolled',scrollY>60)},{passive:true})
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.12})
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
-
-// ── SERVICE TABS ─────────────────────────────────────────────────────
 function showTab(id){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'))
   document.querySelectorAll('.services .tab').forEach(t=>t.classList.remove('active'))
   document.getElementById('tab-'+id).classList.add('active')
   event.target.classList.add('active')
 }
-
-// ── FLEET TABS ────────────────────────────────────────────────────────
 function showFleet(id){
   document.querySelectorAll('[id^="fleet-"]').forEach(p=>p.style.display='none')
   document.querySelectorAll('.fleet .tab').forEach(t=>t.classList.remove('active'))
