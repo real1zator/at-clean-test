@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>АТ-Транс — Грузоперевозки по России</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ─────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;color:#e2e8f0;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+
+/* ── SECTION COLORS ──────────────────────────────────────────────────
+   Каждая секция — свой едва различимый оттенок тёмного фона.
+   Акцент: #e8072a (красный AT-Транс).
+   Текст белый/светло-серый — контраст ≥ 7:1 на всех фонах.
+──────────────────────────────────────────────────────────────────── */
+:root{
+  --red:        #e8072a;
+  --red-dim:    rgba(232,7,42,.12);
+  --red-border: rgba(232,7,42,.3);
+  --white:      #ffffff;
+  --text:       #e2e8f0;
+  --muted:      #94a3b8;
+  --card-border:rgba(255,255,255,.07);
+
+  /* Section backgrounds */
+  --bg-header:  #12141a;
+  --bg-hero:    #0e1016;        /* cold dark navy */
+  --bg-stats:   #0b0e15;        /* deeper navy */
+  --bg-about:   #0e1412;        /* dark teal tint */
+  --bg-services:#13100e;        /* dark warm/brown tint */
+  --bg-cta:     #e8072a;        /* FULL RED — accent break */
+  --bg-fleet:   #0b100e;        /* dark forest tint */
+  --bg-benefits:#100d16;        /* dark purple tint */
+  --bg-footer:  #080a0d;        /* near black */
+}
+
+/* ── TYPOGRAPHY ──────────────────────────────────────────────────── */
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',sans-serif;font-weight:800;line-height:1.15;color:#fff}
+.h-sub{font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);font-family:'Montserrat',sans-serif;margin-bottom:.75rem;display:block}
+.lead{font-size:1.0625rem;color:var(--muted);line-height:1.75}
+
+/* ── LAYOUT ─────────────────────────────────────────────────────── */
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+section{padding:5rem 0}
+.section-head{margin-bottom:3rem}
+
+/* ── BUTTONS ────────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:.9375rem;font-weight:700;letter-spacing:.02em;transition:all .2s}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#c50523;box-shadow:0 6px 24px rgba(232,7,42,.35)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.28)}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.btn-dark{background:#000;color:var(--red);border:2px solid #000}
+.btn-dark:hover{background:#111}
+
+/* ── DIVIDER STRIPE ─────────────────────────────────────────────── */
+.stripe{height:2px;background:linear-gradient(90deg,transparent,var(--red),transparent)}
+
+/* ════════════════════════════════════════════════════════════════════
+   HEADER
+════════════════════════════════════════════════════════════════════ */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--bg-header);border-bottom:1px solid rgba(255,255,255,.08);transition:box-shadow .3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(0,0,0,.6)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:72px}
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo-mark{width:40px;height:40px;background:var(--red);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0}
+.logo-text{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;line-height:1.2;color:#fff}
+.logo-text small{display:block;font-size:.65rem;font-weight:500;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+nav{display:flex;align-items:center;gap:.25rem}
+nav a{padding:.45rem .85rem;border-radius:3px;font-family:'Montserrat',sans-serif;font-size:.8125rem;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;transition:color .2s,background .2s}
+nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.header-phone{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:var(--red);white-space:nowrap}
+.header-phone:hover{color:#ff3352}
+.btn-callback{padding:.55rem 1.2rem;font-size:.8125rem}
+@media(max-width:900px){nav,.btn-callback{display:none}.header-phone{font-size:.95rem}}
+
+/* ════════════════════════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════════════════════════ */
+.hero{background:var(--bg-hero);padding:7rem 0 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+/* Geometric accent — big C shape */
+.hero-deco{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:520px;height:520px;border-radius:50%;border:80px solid rgba(232,7,42,.08);pointer-events:none}
+.hero-deco2{position:absolute;right:120px;top:50%;transform:translateY(-50%);width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,7,42,.15);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.2rem,4.5vw,4rem);margin-bottom:1.5rem;font-weight:900}
+.hero h1 span{color:var(--red)}
+.hero-list{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2.5rem}
+.hero-list li{font-size:1.0625rem;color:var(--muted);display:flex;align-items:center;gap:.65rem}
+.hero-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-img-col{display:flex;justify-content:flex-end;align-items:center;position:relative}
+.hero-truck{width:100%;max-width:560px;object-fit:contain;filter:drop-shadow(0 24px 60px rgba(0,0,0,.7))}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-img-col{display:none}.hero{min-height:auto;padding:7.5rem 0 4rem}}
+
+/* ════════════════════════════════════════════════════════════════════
+   STATS
+════════════════════════════════════════════════════════════════════ */
+.stats{background:var(--bg-stats);border-top:2px solid var(--red);padding:3.5rem 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.stat-card{text-align:center;padding:1.5rem;border:1px solid var(--card-border);border-radius:6px;background:rgba(255,255,255,.02);transition:border-color .25s}
+.stat-card:hover{border-color:var(--red-border)}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:900;color:var(--red);line-height:1;margin-bottom:.4rem}
+.stat-label{font-size:.875rem;color:var(--muted);font-weight:500}
+@media(max-width:700px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ════════════════════════════════════════════════════════════════════
+   ABOUT
+════════════════════════════════════════════════════════════════════ */
+.about{background:var(--bg-about)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:1.25rem}
+.about-text{color:var(--muted);font-size:1rem;line-height:1.8;margin-bottom:1.5rem}
+.about-list{display:flex;flex-direction:column;gap:.85rem}
+.about-item{display:flex;align-items:flex-start;gap:.9rem;padding:1rem 1.25rem;border:1px solid var(--card-border);border-radius:6px;background:rgba(255,255,255,.02)}
+.about-num{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:var(--red);line-height:1;flex-shrink:0;min-width:2rem}
+.about-item-text{font-size:.9375rem;color:var(--text);font-weight:500}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+
+/* ════════════════════════════════════════════════════════════════════
+   SERVICES
+════════════════════════════════════════════════════════════════════ */
+.services{background:var(--bg-services)}
+.services h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:.5rem}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2.5rem}
+.tab{padding:.6rem 1.4rem;border-radius:4px;font-family:'Montserrat',sans-serif;font-size:.875rem;font-weight:700;border:1px solid var(--card-border);color:var(--muted);cursor:pointer;transition:all .2s}
+.tab.active,.tab:hover{background:var(--red);color:#fff;border-color:var(--red)}
+.tab-panel{display:none}
+.tab-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.service-desc{color:var(--muted);font-size:.9375rem;line-height:1.75;margin-bottom:1.5rem}
+.service-specs{border:1px solid var(--card-border);border-radius:6px;overflow:hidden}
+.spec-title{padding:.75rem 1.25rem;background:rgba(232,7,42,.08);border-bottom:1px solid var(--card-border);font-family:'Montserrat',sans-serif;font-size:.8125rem;font-weight:700;color:var(--red);letter-spacing:.08em;text-transform:uppercase}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:.7rem 1.25rem;border-bottom:1px solid var(--card-border)}
+.spec-row:last-child{border-bottom:none}
+.spec-key{font-size:.875rem;color:var(--muted)}
+.spec-val{font-size:.875rem;font-weight:600;color:#fff;text-align:right}
+.service-img-wrap{border-radius:8px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--card-border);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.service-img-wrap svg{opacity:.18}
+@media(max-width:820px){.tab-panel.active{grid-template-columns:1fr}.service-img-wrap{display:none}}
+
+/* ════════════════════════════════════════════════════════════════════
+   CTA BAND
+════════════════════════════════════════════════════════════════════ */
+.cta{background:var(--bg-cta);padding:4rem 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.cta h2{font-size:clamp(1.4rem,2.5vw,2rem);color:#fff;max-width:600px;font-weight:800}
+.cta-form{display:flex;gap:.75rem;flex-wrap:wrap}
+.cta-form input{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:.75rem 1.25rem;font-size:.9375rem;color:#fff;width:240px;font-family:inherit}
+.cta-form input::placeholder{color:rgba(255,255,255,.55)}
+.cta-form input:focus{outline:none;border-color:#fff}
+
+/* ════════════════════════════════════════════════════════════════════
+   FLEET
+════════════════════════════════════════════════════════════════════ */
+.fleet{background:var(--bg-fleet)}
+.fleet h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:.5rem}
+.fleet-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.75rem 0 2.5rem}
+.fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fleet-card{border:1px solid var(--card-border);border-radius:8px;padding:1.5rem;background:rgba(255,255,255,.02);transition:border-color .25s,transform .25s}
+.fleet-card:hover{border-color:var(--red-border);transform:translateY(-3px)}
+.fleet-card h4{font-size:1rem;margin-bottom:.5rem}
+.fleet-card p{font-size:.875rem;color:var(--muted)}
+.fleet-badge{display:inline-block;background:var(--red-dim);border:1px solid var(--red-border);border-radius:3px;padding:.2rem .7rem;font-size:.75rem;font-weight:700;color:var(--red);font-family:'Montserrat',sans-serif;margin-bottom:.75rem}
+@media(max-width:860px){.fleet-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.fleet-grid{grid-template-columns:1fr}}
+
+/* ════════════════════════════════════════════════════════════════════
+   BENEFITS
+════════════════════════════════════════════════════════════════════ */
+.benefits{background:var(--bg-benefits)}
+.benefits h2{font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:3rem}
+.benefits-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}
+.ben-card{padding:1.75rem 1.25rem;border:1px solid var(--card-border);border-radius:8px;background:rgba(255,255,255,.02);text-align:center;transition:border-color .25s,background .25s}
+.ben-card:hover{border-color:var(--red-border);background:rgba(232,7,42,.04)}
+.ben-icon{width:48px;height:48px;border-radius:50%;background:var(--red-dim);border:1px solid var(--red-border);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.ben-icon svg{width:22px;height:22px;color:var(--red);fill:none;stroke:currentColor;stroke-width:2}
+.ben-card h4{font-size:.9375rem;margin-bottom:.5rem}
+.ben-card p{font-size:.8125rem;color:var(--muted);line-height:1.6}
+@media(max-width:900px){.benefits-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.benefits-grid{grid-template-columns:1fr 1fr}}
+
+/* ════════════════════════════════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════════════════════════════════ */
+footer{background:var(--bg-footer);padding:4rem 0 2rem;border-top:2px solid rgba(232,7,42,.25)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.5fr;gap:2.5rem;margin-bottom:3rem}
+.footer-brand{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;margin-bottom:.5rem}
+.footer-tagline{font-size:.875rem;color:var(--muted);margin-bottom:1.5rem}
+.footer-phone{font-family:'Montserrat',sans-serif;font-size:1.6rem;font-weight:900;color:var(--red);margin-bottom:.35rem;display:block}
+.footer-phone:hover{color:#ff3352}
+.footer-email{font-size:.9375rem;color:var(--muted);display:block}
+.footer-email:hover{color:#fff}
+.footer-col h5{font-family:'Montserrat',sans-serif;font-size:.8125rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:1rem}
+.footer-col ul li{margin-bottom:.5rem}
+.footer-col ul a{font-size:.875rem;color:var(--muted);transition:color .2s}
+.footer-col ul a:hover{color:#fff}
+.footer-address{font-size:.875rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.footer-bottom p{font-size:.8125rem;color:#4a5568}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footer-grid{grid-template-columns:1fr}}
+
+/* ── REVEAL ANIMATION ───────────────────────────────────────────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+.delay-1{transition-delay:.1s}
+.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}
+.delay-4{transition-delay:.45s}
+</style>
+</head>
+<body>
+
+<!-- ════ HEADER ═════════════════════════════════════════════════════ -->
+<header class="header" id="top">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        <div class="logo-mark">АТ</div>
+        <div class="logo-text">АТ-ТРАНС<small>Грузоперевозки по России</small></div>
+      </a>
+      <nav>
+        <a href="#about">О компании</a>
+        <a href="#services">Услуги</a>
+        <a href="#fleet">Автопарк</a>
+        <a href="#benefits">Почему мы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:1rem">
+        <a href="tel:88007076157" class="header-phone">8 800 707 61 57</a>
+        <a href="#contacts" class="btn btn-red btn-callback">Обратный звонок</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ════ HERO ════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-deco2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="h-sub reveal">Надёжные грузоперевозки</span>
+        <h1 class="reveal delay-1">Грузоперевозки<br>по&nbsp;всей <span>России</span><br>от&nbsp;1&nbsp;тонны</h1>
+        <ul class="hero-list reveal delay-2">
+          <li>Тентовые перевозки</li>
+          <li>Рефрижераторные перевозки</li>
+          <li>Перевозка с кониками</li>
+        </ul>
+        <div class="hero-btns reveal delay-3">
+          <a href="tel:88007076157" class="btn btn-red">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6z"/></svg>
+            Позвонить
+          </a>
+          <a href="#contacts" class="btn btn-outline">Оставить заявку</a>
+        </div>
+      </div>
+      <div class="hero-img-col reveal delay-2">
+        <!-- Truck SVG illustration -->
+        <svg class="hero-truck" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="truckBody" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a2d36"/><stop offset="100%" stop-color="#1a1d24"/>
+            </linearGradient>
+            <linearGradient id="cabin" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2e3240"/><stop offset="100%" stop-color="#1c2030"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="260" cy="200" rx="220" ry="12" fill="rgba(0,0,0,.5)"/>
+          <!-- Trailer -->
+          <rect x="108" y="48" width="370" height="138" rx="4" fill="url(#truckBody)" stroke="#353840" stroke-width="1.5"/>
+          <rect x="110" y="50" width="366" height="6" rx="2" fill="rgba(255,255,255,.04)"/>
+          <!-- Red stripe -->
+          <rect x="108" y="78" width="370" height="8" fill="rgba(232,7,42,.4)"/>
+          <!-- Door lines -->
+          <line x1="300" y1="50" x2="300" y2="185" stroke="#353840" stroke-width="1.5"/>
+          <line x1="420" y1="50" x2="420" y2="185" stroke="#353840" stroke-width="1.5"/>
+          <line x1="474" y1="50" x2="474" y2="185" stroke="#353840" stroke-width="2"/>
+          <!-- Handles -->
+          <rect x="285" y="118" width="12" height="4" rx="2" fill="#444"/>
+          <rect x="405" y="118" width="12" height="4" rx="2" fill="#444"/>
+          <!-- Tail light -->
+          <rect x="476" y="98" width="12" height="36" rx="2" fill="rgba(220,40,40,.15)" stroke="rgba(220,60,60,.4)" stroke-width="1"/>
+          <rect x="478" y="100" width="8" height="14" rx="1" fill="rgba(220,40,40,.3)"/>
+          <!-- Rear bumper -->
+          <rect x="476" y="174" width="32" height="12" rx="2" fill="#1e2028" stroke="#353840"/>
+
+          <!-- Cab -->
+          <path d="M38 183 L38 115 L44 104 L66 68 L108 50 L108 183 Z" fill="url(#cabin)" stroke="#353840" stroke-width="1.5"/>
+          <!-- Cab front -->
+          <path d="M18 183 L18 148 L38 115 L38 183 Z" fill="#181b25" stroke="#353840" stroke-width="1.5"/>
+          <!-- Windshield -->
+          <path d="M44 112 L66 72 L106 54 L106 112 Z" fill="rgba(100,160,240,.07)" stroke="rgba(200,220,255,.2)" stroke-width="1"/>
+          <path d="M50 108 L68 78 L88 68 L88 74 L70 84 L56 110 Z" fill="rgba(255,255,255,.03)"/>
+          <!-- Side window -->
+          <rect x="112" y="58" width="42" height="34" rx="2" fill="rgba(100,160,240,.06)" stroke="rgba(200,220,255,.12)" stroke-width="1"/>
+          <!-- Waist line -->
+          <line x1="38" y1="128" x2="478" y2="128" stroke="rgba(232,7,42,.22)" stroke-width="1"/>
+          <!-- Mirror -->
+          <path d="M42 96 L54 93 L54 104 L42 107 Z" fill="#1e2028" stroke="#353840"/>
+          <!-- Headlight -->
+          <rect x="18" y="138" width="22" height="16" rx="3" fill="rgba(255,245,150,.07)" stroke="rgba(232,7,42,.5)" stroke-width="1.2"/>
+          <rect x="21" y="141" width="10" height="8" rx="1.5" fill="rgba(255,245,150,.22)"/>
+          <rect x="18" y="133" width="22" height="5" rx="2" fill="rgba(255,245,150,.14)" stroke="rgba(232,7,42,.35)" stroke-width="1"/>
+          <!-- DRL glow -->
+          <ellipse cx="10" cy="146" rx="22" ry="10" fill="rgba(255,240,100,.06)"/>
+          <!-- Grille -->
+          <rect x="18" y="156" width="22" height="22" rx="2" fill="#141720" stroke="#353840"/>
+          <line x1="21" y1="161" x2="38" y2="161" stroke="#353840" stroke-dasharray="3 3"/>
+          <line x1="21" y1="166" x2="38" y2="166" stroke="#353840" stroke-dasharray="3 3"/>
+          <line x1="21" y1="171" x2="38" y2="171" stroke="#353840" stroke-dasharray="3 3"/>
+          <!-- Bumper -->
+          <rect x="14" y="177" width="30" height="8" rx="2" fill="#181b25" stroke="#353840"/>
+          <!-- Front arch -->
+          <path d="M26 183 Q26 160 56 160 Q86 160 86 183" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
+          <!-- Rear arch -->
+          <path d="M346 183 Q346 158 378 158 Q410 158 410 183" fill="#10121a" stroke="#353840" stroke-width="1.5"/>
+          <!-- Front wheel -->
+          <circle cx="56" cy="188" r="28" fill="#10121a" stroke="#353840" stroke-width="2"/>
+          <circle cx="56" cy="188" r="20" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
+          <circle cx="56" cy="188" r="7" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
+          <line x1="56" y1="168" x2="56" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <line x1="56" y1="198" x2="56" y2="208" stroke="#353840" stroke-width="1.5"/>
+          <line x1="36" y1="188" x2="46" y2="188" stroke="#353840" stroke-width="1.5"/>
+          <line x1="66" y1="188" x2="76" y2="188" stroke="#353840" stroke-width="1.5"/>
+          <circle cx="56" cy="188" r="2.5" fill="rgba(232,7,42,.7)"/>
+          <!-- Rear wheel -->
+          <circle cx="378" cy="188" r="28" fill="#10121a" stroke="#353840" stroke-width="2"/>
+          <circle cx="378" cy="188" r="20" fill="#181b22" stroke="#252830" stroke-width="1.5"/>
+          <circle cx="378" cy="188" r="7" fill="#1e2028" stroke="rgba(232,7,42,.4)" stroke-width="1.5"/>
+          <line x1="378" y1="168" x2="378" y2="178" stroke="#353840" stroke-width="1.5"/>
+          <line x1="378" y1="198" x2="378" y2="208" stroke="#353840" stroke-width="1.5"/>
+          <line x1="358" y1="188" x2="368" y2="188" stroke="#353840" stroke-width="1.5"/>
+          <line x1="388" y1="188" x2="398" y2="188" stroke="#353840" stroke-width="1.5"/>
+          <circle cx="378" cy="188" r="2.5" fill="rgba(232,7,42,.7)"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ════ STATS ════════════════════════════════════════════════════════ -->
+<section class="stats" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">лет на рынке грузоперевозок</div>
+      </div>
+      <div class="stat-card reveal delay-1">
+        <div class="stat-num">3 000</div>
+        <div class="stat-label">довольных клиентов</div>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-num">100+</div>
+        <div class="stat-label">единиц техники в автопарке</div>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">поддержка на протяжении рейса</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════════════════════════════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="h-sub reveal">О компании</span>
+        <h2 class="reveal delay-1">Транспортная компания<br><span style="color:var(--red)">АТ-Транс</span></h2>
+        <p class="about-text reveal delay-2">
+          Транспортная Компания «АТ-Транс» уже десять лет занимается быстрыми и надежными
+          перевозками по всей России, в том числе в отдалённые населённые пункты. Нашими
+          клиентами стали тысячи людей и организаций, доверивших нам свои грузы.
+        </p>
+        <p class="about-text reveal delay-2">
+          Мы специализируемся на перевозках грузов от 1 тонны, обеспечивая полную
+          сохранность и своевременную доставку в любую точку страны.
+        </p>
+        <a href="tel:88007076157" class="btn btn-red reveal delay-3" style="margin-top:.5rem">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6z"/></svg>
+          8 800 707 61 57
+        </a>
+      </div>
+      <div class="about-list reveal delay-2">
+        <div class="about-item">
+          <span class="about-num">01</span>
+          <span class="about-item-text">Собственный автопарк: более 100 единиц техники различных классов</span>
+        </div>
+        <div class="about-item">
+          <span class="about-num">02</span>
+          <span class="about-item-text">Страхование грузов на всей протяжённости маршрута</span>
+        </div>
+        <div class="about-item">
+          <span class="about-num">03</span>
+          <span class="about-item-text">GPS-мониторинг автомобилей в реальном времени</span>
+        </div>
+        <div class="about-item">
+          <span class="about-num">04</span>
+          <span class="about-item-text">Опытные водители с медицинскими справками и допуском к работе</span>
+        </div>
+        <div class="about-item">
+          <span class="about-num">05</span>
+          <span class="about-item-text">Выполнение рейсов в выходные и праздничные дни</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ════ SERVICES ════════════════════════════════════════════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <span class="h-sub reveal">Наши услуги</span>
+    <h2 class="reveal delay-1">Осуществляем<br>грузоперевозки</h2>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('tent')">Тентовые перевозки</button>
+      <button class="tab" onclick="showTab('refr')">Рефрижераторные</button>
+      <button class="tab" onclick="showTab('konik')">С кониками</button>
+    </div>
+    <!-- Tent -->
+    <div class="tab-panel active" id="tab-tent">
+      <div>
+        <p class="service-desc">
+          Тентовый полуприцеп — универсальное решение для перевозки большинства видов грузов.
+          Тент надёжно защищает содержимое от осадков и ветра. Боковая загрузка через штору
+          позволяет быстро выполнять погрузку-разгрузку.
+        </p>
+        <div class="service-specs">
+          <div class="spec-title">Основные характеристики</div>
+          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 22 т</span></div>
+          <div class="spec-row"><span class="spec-key">Длина кузова</span><span class="spec-val">13,6 м</span></div>
+          <div class="spec-row"><span class="spec-key">Объём кузова</span><span class="spec-val">86 м³</span></div>
+          <div class="spec-row"><span class="spec-key">Высота погрузки</span><span class="spec-val">2,7 м</span></div>
+          <div class="spec-row"><span class="spec-key">Ширина кузова</span><span class="spec-val">2,45 м</span></div>
+        </div>
+      </div>
+      <div class="service-img-wrap">
+        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
+          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="28" font-weight="800" fill="rgba(232,7,42,.5)">ТЕНТ</text>
+        </svg>
+      </div>
+    </div>
+    <!-- Refr -->
+    <div class="tab-panel" id="tab-refr">
+      <div>
+        <p class="service-desc">
+          Рефрижераторные перевозки — для грузов, требующих поддержания температурного
+          режима. Холодильные установки поддерживают температуру от −20 до +12°C на
+          протяжении всего рейса. Идеально для продуктов питания и фармацевтики.
+        </p>
+        <div class="service-specs">
+          <div class="spec-title">Основные характеристики</div>
+          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 20 т</span></div>
+          <div class="spec-row"><span class="spec-key">Длина кузова</span><span class="spec-val">13,4 м</span></div>
+          <div class="spec-row"><span class="spec-key">Температурный режим</span><span class="spec-val">−20°C … +12°C</span></div>
+          <div class="spec-row"><span class="spec-key">Объём кузова</span><span class="spec-val">82 м³</span></div>
+        </div>
+      </div>
+      <div class="service-img-wrap">
+        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
+          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="22" font-weight="800" fill="rgba(232,7,42,.5)">РЕФРИЖ.</text>
+        </svg>
+      </div>
+    </div>
+    <!-- Konik -->
+    <div class="tab-panel" id="tab-konik">
+      <div>
+        <p class="service-desc">
+          Перевозка с кониками — самый надёжный способ доставки больших и длинномерных
+          грузов: металлопрокат, трубы, пиломатериалы, негабаритные конструкции.
+          Коники обеспечивают надёжную фиксацию и безопасную транспортировку.
+        </p>
+        <div class="service-specs">
+          <div class="spec-title">Основные характеристики</div>
+          <div class="spec-row"><span class="spec-key">Грузоподъёмность</span><span class="spec-val">до 22 т</span></div>
+          <div class="spec-row"><span class="spec-key">Длина груза</span><span class="spec-val">до 13,6 м</span></div>
+          <div class="spec-row"><span class="spec-key">Тип груза</span><span class="spec-val">длинномерный</span></div>
+        </div>
+      </div>
+      <div class="service-img-wrap">
+        <svg viewBox="0 0 400 220" width="360" xmlns="http://www.w3.org/2000/svg" fill="none">
+          <rect x="60" y="40" width="290" height="130" rx="4" stroke="#444" stroke-width="2" fill="rgba(255,255,255,.03)"/>
+          <text x="200" y="115" text-anchor="middle" font-family="Montserrat" font-size="24" font-weight="800" fill="rgba(232,7,42,.5)">КОНИКИ</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ══════════════════════════════════════════════════════════ -->
+<section class="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>У вас есть нестандартная задача<br>или уточняющие вопросы?</h2>
+      <div class="cta-form">
+        <input type="text" placeholder="Имя или название компании">
+        <input type="tel" placeholder="Ваш телефон">
+        <button class="btn btn-dark">Отправить</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FLEET ════════════════════════════════════════════════════════ -->
+<section class="fleet" id="fleet">
+  <div class="container">
+    <span class="h-sub reveal">Наш транспорт</span>
+    <h2 class="reveal delay-1">Автопарк</h2>
+    <p class="lead reveal delay-2" style="max-width:580px;margin-bottom:0">
+      Собственный парк из более чем 100 единиц техники. Регулярное техническое
+      обслуживание и контроль технического состояния каждого автомобиля.
+    </p>
+    <div class="fleet-tabs" style="margin-top:2rem">
+      <button class="tab active" onclick="showFleet('full')">Тентовые полуприцепы</button>
+      <button class="tab" onclick="showFleet('refr')">Рефрижераторы</button>
+      <button class="tab" onclick="showFleet('konik')">С кониками</button>
+    </div>
+    <div class="fleet-grid" id="fleet-full">
+      <div class="fleet-card reveal">
+        <div class="fleet-badge">22 тонны</div>
+        <h4>Volvo FH / MAN TGX</h4>
+        <p>Тентованный полуприцеп 13,6 м, 86 м³. Боковая загрузка, крепёжные ремни.</p>
+      </div>
+      <div class="fleet-card reveal delay-1">
+        <div class="fleet-badge">20 тонн</div>
+        <h4>Scania R / Mercedes Actros</h4>
+        <p>Тент, удлинённый кузов, пол с ламелями для крепления груза.</p>
+      </div>
+      <div class="fleet-card reveal delay-2">
+        <div class="fleet-badge">до 5 тонн</div>
+        <h4>Mercedes Sprinter / Ford Transit</h4>
+        <p>Малотоннажные тентованные фургоны для сборных и малых партий.</p>
+      </div>
+    </div>
+    <div class="fleet-grid" id="fleet-refr" style="display:none">
+      <div class="fleet-card">
+        <div class="fleet-badge">−20 … +12°C</div>
+        <h4>Carrier / Thermo King</h4>
+        <p>Рефрижераторные полуприцепы с сертифицированным холодильным оборудованием.</p>
+      </div>
+      <div class="fleet-card">
+        <div class="fleet-badge">фармацевтика</div>
+        <h4>ATP-сертификат</h4>
+        <p>Транспорт для перевозки лекарственных средств и биологических грузов.</p>
+      </div>
+    </div>
+    <div class="fleet-grid" id="fleet-konik" style="display:none">
+      <div class="fleet-card">
+        <div class="fleet-badge">до 13,6 м</div>
+        <h4>Коник / Лесовоз</h4>
+        <p>Специализированная техника для длинномерных грузов: металл, трубы, пиломатериал.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<!-- ════ BENEFITS ════════════════════════════════════════════════════ -->
+<section class="benefits" id="benefits">
+  <div class="container">
+    <span class="h-sub reveal">Почему мы</span>
+    <h2 class="reveal delay-1">Наши преимущества</h2>
+    <div class="benefits-grid">
+      <div class="ben-card reveal">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Надёжность</h4>
+        <p>10 лет на рынке, тысячи успешно выполненных рейсов</p>
+      </div>
+      <div class="ben-card reveal delay-1">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h4>Прозрачность</h4>
+        <p>Фиксированные цены, договоры, закрывающие документы</p>
+      </div>
+      <div class="ben-card reveal delay-2">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Пунктуальность</h4>
+        <p>GPS-контроль и строгое соблюдение сроков доставки</p>
+      </div>
+      <div class="ben-card reveal delay-3">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4>Гибкость</h4>
+        <p>Индивидуальный подход к каждому клиенту и нестандартным задачам</p>
+      </div>
+      <div class="ben-card reveal" style="transition-delay:.55s">
+        <div class="ben-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h4>Ответственность</h4>
+        <p>Страхование грузов и полная финансовая ответственность</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ═══════════════════════════════════════════════════════ -->
+<footer id="contacts">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">АТ-ТРАНС</div>
+        <p class="footer-tagline">Грузоперевозки по России от 1 тонны</p>
+        <a href="tel:88007076157" class="footer-phone">8 800 707 61 57</a>
+        <a href="mailto:info@at-trans.ru" class="footer-email">info@at-trans.ru</a>
+      </div>
+      <div class="footer-col">
+        <h5>Навигация</h5>
+        <ul>
+          <li><a href="#about">О компании</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#fleet">Автопарк</a></li>
+          <li><a href="#benefits">Почему мы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Услуги</h5>
+        <ul>
+          <li><a href="#services">Тентовые перевозки</a></li>
+          <li><a href="#services">Рефрижераторные</a></li>
+          <li><a href="#services">Перевозки с кониками</a></li>
+          <li><a href="#services">Сборные грузы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Контакты</h5>
+        <p class="footer-address">г. Москва, Строительный проезд,<br>дом 7А, корпус 11А</p>
+        <p class="footer-address">ООО «АТ-Транс»<br>ИНН: 7733339252</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 АТ-Транс. Все права защищены.</p>
+      <p style="cursor:pointer;color:#4a5568">Политика конфиденциальности</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── SCROLL HEADER ────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  document.getElementById('top').classList.toggle('scrolled',scrollY>60)
+},{ passive:true })
+
+// ── REVEAL ───────────────────────────────────────────────────────────
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible') })
+},{threshold:.12})
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))
+
+// ── SERVICE TABS ─────────────────────────────────────────────────────
+function showTab(id){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'))
+  document.querySelectorAll('.services .tab').forEach(t=>t.classList.remove('active'))
+  document.getElementById('tab-'+id).classList.add('active')
+  event.target.classList.add('active')
+}
+
+// ── FLEET TABS ────────────────────────────────────────────────────────
+function showFleet(id){
+  document.querySelectorAll('[id^="fleet-"]').forEach(p=>p.style.display='none')
+  document.querySelectorAll('.fleet .tab').forEach(t=>t.classList.remove('active'))
+  document.getElementById('fleet-'+id).style.display='grid'
+  event.target.classList.add('active')
+}
+</script>
+</body>
+</html>
