@@ -1,4 +1,4 @@
-const CACHE = 'pereezd-v1';
+const CACHE = 'pereezd-v2';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'icon.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', (e) => {

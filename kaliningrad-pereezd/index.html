@@ -75,13 +75,15 @@
       <div class="route">
         <label class="route__row">
           <span class="dot dot--mint" aria-hidden="true"></span>
-          <span class="route__field"><span class="lbl">Откуда</span><input name="from" type="text" placeholder="Улица, дом" autocomplete="street-address"></span>
+          <span class="route__field"><span class="lbl">Откуда</span><input name="from" type="text" list="places" placeholder="Калининград, ул. Ленинский пр-т, 1" autocomplete="off"></span>
         </label>
         <label class="route__row">
           <span class="dot dot--accent" aria-hidden="true"></span>
-          <span class="route__field"><span class="lbl">Куда</span><input name="to" type="text" placeholder="Калининград или область, улица"></span>
+          <span class="route__field"><span class="lbl">Куда</span><input name="to" type="text" list="places" placeholder="Зеленоградск, ул. Курортная, 5" autocomplete="off"></span>
         </label>
       </div>
+      <datalist id="places"></datalist>
+      <p class="route__hint" data-route-hint aria-live="polite">Начните вводить город или посёлок — расстояние подставится само</p>
 
       <div class="seg seg--plain" role="radiogroup" aria-label="Направление">
         <button type="button" class="seg__btn" data-area="city" aria-pressed="true">По Калининграду</button>

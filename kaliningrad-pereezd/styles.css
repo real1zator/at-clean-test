@@ -83,6 +83,8 @@ button, input { font: inherit; color: inherit; }
 .route__row { display: flex; align-items: center; gap: 12px; padding: 10px 16px; }
 .route__row + .route__row { border-top: 1px solid var(--line); }
 .route__field { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.route__hint { margin: -8px 2px 0; font-size: 13px; color: var(--muted); }
+.route__hint.is-found { color: var(--mint-ink); font-weight: 500; }
 .dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
 .dot--mint { background: var(--mint); }
 .dot--accent { background: var(--accent); }
