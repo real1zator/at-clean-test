@@ -16,7 +16,9 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html, body { max-width: 100%; overflow-x: clip; }
+img { max-width: 100%; height: auto; }
 body {
   margin: 0;
   font-family: Poppins, system-ui, -apple-system, "Segoe UI", sans-serif;

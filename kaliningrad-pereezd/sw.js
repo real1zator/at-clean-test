@@ -1,4 +1,4 @@
-const CACHE = 'pereezd-v3';
+const CACHE = 'pereezd-v5';
 const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'icon.svg', 'van.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', (e) => {
@@ -13,7 +13,8 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || new URL(e.request.url).origin !== location.origin) return;
   e.respondWith(
-    fetch(e.request).then((res) => {
+    // no-cache: всегда сверяемся с сервером, чтобы не смешивать старые и новые файлы
+    (e.request.mode === 'navigate' ? fetch(e.request) : fetch(e.request, { cache: 'no-cache' })).then((res) => {
       const copy = res.clone();
       caches.open(CACHE).then((c) => c.put(e.request, copy));
       return res;
