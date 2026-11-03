@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 320" role="img" aria-label="Газель с мебелью и коробками">
+  <!-- мягкий фон -->
+  <circle cx="330" cy="150" r="138" fill="#2EE6C5" opacity="0.16"/>
+  <circle cx="120" cy="96" r="58" fill="#FFAA82" opacity="0.18"/>
+  <circle cx="470" cy="70" r="22" fill="#2EE6C5" opacity="0.28"/>
+
+  <!-- метка на карте -->
+  <g transform="translate(452 26)">
+    <path d="M22 0C10 0 0 9.6 0 21.6 0 37 22 58 22 58s22-21 22-36.4C44 9.6 34 0 22 0z" fill="#D63C0A"/>
+    <circle cx="22" cy="21" r="8.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- линии скорости -->
+  <g stroke-linecap="round" stroke-width="8">
+    <line x1="6" y1="150" x2="44" y2="150" stroke="#2EE6C5"/>
+    <line x1="22" y1="178" x2="48" y2="178" stroke="#FFAA82"/>
+    <line x1="0" y1="206" x2="38" y2="206" stroke="#2EE6C5" opacity="0.6"/>
+  </g>
+
+  <!-- тень -->
+  <ellipse cx="300" cy="292" rx="236" ry="12" fill="#17181C" opacity="0.08"/>
+
+  <!-- открытая дверь кузова -->
+  <path d="M70 92 L40 104 L40 238 L70 246 Z" fill="#E7DED6"/>
+  <path d="M70 92 L40 104 L40 238 L70 246 Z" fill="none" stroke="#D9CEC4" stroke-width="2"/>
+
+  <!-- кузов -->
+  <rect x="70" y="84" width="290" height="176" rx="18" fill="#FFFFFF"/>
+  <rect x="70" y="84" width="290" height="176" rx="18" fill="none" stroke="#EDE5DD" stroke-width="2"/>
+  <!-- проём с грузом -->
+  <rect x="88" y="102" width="168" height="140" rx="10" fill="#F6EDE5"/>
+  <!-- диван -->
+  <g>
+    <rect x="98" y="176" width="112" height="40" rx="10" fill="#D63C0A"/>
+    <rect x="104" y="160" width="100" height="30" rx="9" fill="#E8693F"/>
+    <rect x="92" y="172" width="18" height="44" rx="8" fill="#B8330A"/>
+    <rect x="198" y="172" width="18" height="44" rx="8" fill="#B8330A"/>
+    <rect x="104" y="216" width="6" height="12" rx="2" fill="#17181C"/>
+    <rect x="198" y="216" width="6" height="12" rx="2" fill="#17181C"/>
+  </g>
+  <!-- коробки -->
+  <g>
+    <rect x="200" y="122" width="48" height="44" rx="5" fill="#E9B98F"/>
+    <rect x="221" y="122" width="6" height="44" fill="#D9A273"/>
+    <rect x="204" y="198" width="46" height="40" rx="5" fill="#E9B98F"/>
+    <rect x="224" y="198" width="6" height="40" fill="#D9A273"/>
+    <rect x="112" y="116" width="54" height="40" rx="5" fill="#F1C9A3"/>
+    <rect x="136" y="116" width="6" height="40" fill="#DDAA7D"/>
+  </g>
+  <!-- торшер -->
+  <g>
+    <rect x="178" y="126" width="4" height="48" fill="#17181C"/>
+    <path d="M166 126 h28 l-6 -18 h-16 z" fill="#2EE6C5"/>
+  </g>
+  <!-- фирменная полоса -->
+  <rect x="262" y="116" width="84" height="12" rx="6" fill="#2EE6C5"/>
+  <rect x="262" y="136" width="56" height="12" rx="6" fill="#2EE6C5" opacity="0.55"/>
+  <rect x="70" y="226" width="290" height="16" fill="#D63C0A"/>
+
+  <!-- кабина -->
+  <path d="M360 132 H450 Q468 132 480 146 L522 198 Q532 210 532 226 V260 H360 Z" fill="#D63C0A"/>
+  <path d="M378 148 H446 Q455 148 462 156 L496 198 H378 Z" fill="#CFF8F0"/>
+  <path d="M446 148 l18 0 l32 50 h-14 z" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="404" y="210" width="18" height="5" rx="2.5" fill="#B8330A"/>
+  <rect x="514" y="222" width="18" height="12" rx="4" fill="#FFD9A8"/>
+
+  <!-- рама и бампер -->
+  <rect x="56" y="252" width="484" height="18" rx="9" fill="#17181C"/>
+
+  <!-- колёса -->
+  <g>
+    <circle cx="140" cy="268" r="32" fill="#17181C"/>
+    <circle cx="140" cy="268" r="15" fill="#2EE6C5"/>
+    <circle cx="140" cy="268" r="5" fill="#17181C"/>
+    <circle cx="452" cy="268" r="32" fill="#17181C"/>
+    <circle cx="452" cy="268" r="15" fill="#2EE6C5"/>
+    <circle cx="452" cy="268" r="5" fill="#17181C"/>
+  </g>
+</svg>

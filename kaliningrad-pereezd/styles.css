@@ -44,7 +44,14 @@ button, input, textarea { font: inherit; color: inherit; }
 .topbar__in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; padding-bottom: 14px; }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo__mark { width: 40px; height: 40px; border-radius: 12px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; }
+.logo__img { width: 44px; height: 44px; flex: none; }
+.logo__words { display: flex; flex-direction: column; line-height: 1.15; }
 .logo__text { font-weight: 700; font-size: 20px; }
+.logo__sub { font-size: 12px; color: var(--muted); font-weight: 500; }
+.hero__art { width: 100%; max-width: 520px; height: auto; margin: 4px 0 -4px; }
+.hero__contacts { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+.hero__phone { display: inline-flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700; text-decoration: none; min-height: 44px; }
+.hero__phone .ic { color: var(--accent); }
 .mainnav { display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
 .mainnav a { text-decoration: none; }
 .topbar__actions { display: flex; align-items: center; gap: 16px; }
@@ -186,8 +193,11 @@ button, input, textarea { font: inherit; color: inherit; }
   .wrap { padding-left: 16px; padding-right: 16px; }
   .desktop-only, .topbar__phone { display: none !important; }
   .mobile-only { display: flex !important; }
-  .logo__mark { width: 36px; height: 36px; }
-  .logo__text { font-size: 18px; }
+  .logo__img { width: 38px; height: 38px; }
+  .logo__text { font-size: 17px; }
+  .logo__sub { font-size: 11px; }
+  .hero__art { max-width: 320px; align-self: center; margin: 0; }
+  .hero__contacts { display: none; }
 
   .hero { padding-top: 20px; padding-bottom: 32px; gap: 20px; }
   .hero__text { gap: 14px; }

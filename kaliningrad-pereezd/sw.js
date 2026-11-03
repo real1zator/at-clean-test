@@ -1,5 +1,5 @@
-const CACHE = 'pereezd-v2';
-const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'icon.svg', 'manifest.webmanifest'];
+const CACHE = 'pereezd-v3';
+const FILES = ['./', 'index.html', 'styles.css', 'app.js', 'icon.svg', 'van.svg', 'manifest.webmanifest'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(FILES)).then(() => self.skipWaiting()));
